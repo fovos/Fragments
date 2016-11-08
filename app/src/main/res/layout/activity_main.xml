@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context="com.example.fovos.fragments_test.MainActivity">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="This is Main Activity Content" />
+
+            <!--BUTTON Add new Fragment B-->
+            <Button
+                android:id="@+id/btn_add_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add another fragment B" />
+
+            <!--BUTTON Replace Fragment B with Fragment A-->
+            <Button
+                android:id="@+id/btn_replace_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Replace fragment B with A" />
+
+            <!--FRAGMENT B PLACEHOLDER, - PROGRAMMATICALLY DEFINED
+            MUST PUT FOR REPLACE TO WORK-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/maincontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+            <!--FRAGMENT A PLACEHOLDER - STATICALLY DEFINED
+Here lies the Fragment A.
+Most significant element attribute is name, since we have a connection with
+the proper Fragment class (FragmentA). Through this connection, oncreateView() is executed,
+and finally we have the fragment's layout inflated into the MainActivity Layout
+Finally, the layout attribute is used only for previewing purposes only.-->
+
+            <fragment
+                android:id="@+id/fragment_A"
+                android:name="com.example.fovos.fragments_test.FragmentA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_a" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--FRAGMENT PLACEHOLDER FOOTER-->
+    <fragment
+        android:id="@+id/fragment_footer"
+        android:name="com.example.fovos.fragments_test.Fragment_Footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment__footer" />
+</LinearLayout>
